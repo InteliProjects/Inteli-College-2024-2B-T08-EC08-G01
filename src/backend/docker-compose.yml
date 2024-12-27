@@ -1,0 +1,17 @@
+services:
+  backend:
+    build: .
+    network_mode: host
+    ports: 
+      - 8000:8000
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
